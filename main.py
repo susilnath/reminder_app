@@ -8,8 +8,6 @@ font_but = QtGui.QFont()
 font_but.setFamily("Segoe UI Symbol")
 font_but.setPointSize(10)
 font_but.setWeight(95)
-
-class WorkerSignals(QObject):
     
 
 class rems():
