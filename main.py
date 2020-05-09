@@ -79,7 +79,7 @@ if __name__=="__main__":
     desktop = QtWidgets.QApplication.desktop()
     resolution = desktop.availableGeometry()
  
-    myapp = uic.loadUi("C:/Users/Black Hound/Documents/Visual Code Projects/.vscode/Forge/Rem/main.ui")
+    myapp = uic.loadUi("main.ui")
     myapp.setWindowTitle("QThread Application")
     myapp.setWindowOpacity(1)
     myapp.setMinimumWidth(resolution.width() / 3)
