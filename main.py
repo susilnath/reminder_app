@@ -1,14 +1,56 @@
 import sys
 from PyQt5 import QtWidgets,QtCore,QtGui,uic
 from PyQt5.Qt import QApplication, QLabel, QWidget
-from PyQt5.QtCore import QRunnable,QThreadPool
-import sys,time
+from PyQt5.QtCore import QRunnable,QThreadPool,pyqtSignal,QObject
+import sys,time,traceback
 
 font_but = QtGui.QFont()
 font_but.setFamily("Segoe UI Symbol")
 font_but.setPointSize(10)
 font_but.setWeight(95)
+
+class WorkerSignals(QObject):
+    rem_state=pyqtSignal(str)
+    error=pyqtSignal(tuple)
+
+class Worker(QRunnable):
+    def __init__(self,fn):
+        super(Worker,self).__init__()
+        self.fn=fn
+        self.signals = WorkerSignals()
+        self.remainder=[]
+        self.timing=[]
+        self.rem_safe=[]
+        self.tim_safe=[]
+
+    def run(self):
+        try:
+            s="received"
+            while True:
+                self.safe_guard()     
+                time.sleep(1)
+                self.timer()
+        except:
+            traceback.print_exc()
+            exctype, value = sys.exc_info()[:2]
+            self.signals.error.emit((exctype, value, traceback.format_exc()))
+
+    def update_rem(self,rem,tim):
+        self.rem_safe=rem
+        self.tim_safe=tim
     
+    def safe_guard(self):
+        self.remainder=self.rem_safe
+        self.timing=self.tim_safe
+
+    def timer(self):
+        for i in range(len(self.remainder)):
+            print("Looping through")
+            if self.timing[i]==0:
+                myapp.label.setText("Remainder!!!!")
+                continue
+            self.timing[i]=self.timing[i]-1
+
 
 class rems():
     rem=[]
@@ -32,6 +74,7 @@ def save():
     rem1.curr_pos=len(rem1.rem)-1
     myapp.timer.setValue(0)
     myapp.textEdit.setEnabled(False)
+    worker.update_rem(rem1.rem,rem1.tim)
     print(rem1.rem)
     print(rem1.tim)
 
@@ -63,16 +106,11 @@ def delete():
         rem1.curr_pos=len(rem1.rem)-1
     myapp.textEdit.setText("[Deleted]")
     myapp.timer.setValue(0)
-    
-def tim_inc():
-    if rem1.length>0:
-        for i in range(rem1.length):
-            print("Looping through")
-            if rem1.tim[i]==0:
-                myapp.label.setText("Remainder!!!!")
-                continue
-            rem1.tim[i]=rem1.tim[i]-1
-        time.sleep(1)
+    worker.update_rem(rem1.rem,rem1.tim)
+
+def checked(text):
+    #print("Checking")
+    s="hello"
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
@@ -100,11 +138,15 @@ if __name__=="__main__":
     myapp.prev.clicked.connect(prev)
     myapp.nxt.clicked.connect(nxt)
     myapp.del_btn.clicked.connect(delete)
+    myapp.indicator.setText("Enter Remainders :)")
     myapp.show()
     rem1=rems
+
+    threadpool=QThreadPool()
+    print("Multithreading with maximum %d threads" % threadpool.maxThreadCount())
+    worker=Worker(checked)
+    worker.signals.rem_state.connect(checked)
+    threadpool.start(worker)
+
     app.exec_()
     print("App started")
-#threadpool=QThreadPool()
-#print("Multithreading with maximum %d threads" % threadpool.maxThreadCount())
-#worker=Worker()
-#threadpool.start(worker)
