@@ -138,7 +138,7 @@ if __name__=="__main__":
     myapp.prev.clicked.connect(prev)
     myapp.nxt.clicked.connect(nxt)
     myapp.del_btn.clicked.connect(delete)
-    myapp.indicator.setText("Enter Remainders :)")
+    #myapp.indicator.setText("Enter Remainders :)")
     myapp.show()
     rem1=rems
 
