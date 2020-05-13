@@ -23,3 +23,6 @@ if __name__=="__main__":
     rem1=store
     add_rem()
     print(rem1.rem)
+
+for i in range(10):
+    schedule.run_pending()
