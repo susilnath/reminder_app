@@ -7,10 +7,12 @@ class Ui(QtWidgets.QMainWindow):
 
         self.button = self.findChild(QtWidgets.QPushButton, 'Add_reminder')
         self.label = self.findChild(QtWidgets.QLabel, 'debug')
+        self.datetime=self.findChild(QtWidgets.QDateTimeEdit,'datetime')
 
         self.button.clicked.connect(self.printButtonPressed)
+        print(self.datetime.dateTime())
 
         self.show()
 
     def printButtonPressed(self):
-        self.label.setText("Working")
+        self.label.setText(str(self.datetime.dateTime()))
