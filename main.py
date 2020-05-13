@@ -12,13 +12,13 @@ class store:
 def job():
     print("Schedule Working")
 
-def scheduler():
-    schedule.every().seconds.do(job)
+
+schedule.every().seconds.do(job)
 
 def add_rem():
-    rem1.rem.append(input("Enter a Reminder:"))
-    rem1.tim.append(input("Enter "))
-
+    #rem1.rem.append(input("Enter a Reminder:"))
+    #rem1.tim.append(input("Enter "))
+    print("Check Hello")
 if __name__=="__main__":
     rem1=store
     add_rem()
@@ -26,3 +26,4 @@ if __name__=="__main__":
 
 for i in range(10):
     schedule.run_pending()
+    time.sleep(1)
