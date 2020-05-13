@@ -10,9 +10,9 @@ class Ui(QtWidgets.QMainWindow):
         self.datetime=self.findChild(QtWidgets.QDateTimeEdit,'datetime')
 
         self.button.clicked.connect(self.printButtonPressed)
-        print(self.datetime.dateTime())
+        print(self.datetime.dateTime().toString())
 
         self.show()
 
     def printButtonPressed(self):
-        self.label.setText(str(self.datetime.dateTime()))
+        self.label.setText(str(self.datetime.dateTime().toString()))
