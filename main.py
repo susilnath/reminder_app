@@ -1,8 +1,8 @@
-import sys
-from PyQt5 import QtWidgets,QtCore,QtGui,uic
+import sys, time, traceback
+
+from PyQt5 import QtWidgets, QtCore, QtGui, uic
 from PyQt5.Qt import QApplication, QLabel, QWidget
-from PyQt5.QtCore import QRunnable,QThreadPool,pyqtSignal,QObject
-import sys,time,traceback
+from PyQt5.QtCore import QRunnable, QThreadPool, pyqtSignal, QObject
 
 font_but = QtGui.QFont()
 font_but.setFamily("Segoe UI Symbol")
@@ -10,8 +10,8 @@ font_but.setPointSize(10)
 font_but.setWeight(95)
 
 class WorkerSignals(QObject):
-    rem_state=pyqtSignal(str)
-    error=pyqtSignal(tuple)
+    rem_state = pyqtSignal(str)
+    error = pyqtSignal(tuple)
 
 class Worker(QRunnable):
     def __init__(self,fn):
