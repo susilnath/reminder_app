@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>580</width>
-    <height>416</height>
+    <width>337</width>
+    <height>338</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,9 +20,9 @@
    <widget class="QPushButton" name="Add_reminder">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>240</y>
-      <width>301</width>
+      <x>80</x>
+      <y>190</y>
+      <width>191</width>
       <height>61</height>
      </rect>
     </property>
@@ -34,7 +34,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>70</y>
+      <y>40</y>
       <width>201</width>
       <height>81</height>
      </rect>
@@ -46,10 +46,10 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QDateTimeEdit" name="datetime">
+   <widget class="QDateTimeEdit" name="DateTime_Picker">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>80</x>
       <y>150</y>
       <width>194</width>
       <height>22</height>
@@ -65,7 +65,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>580</width>
+     <width>337</width>
      <height>24</height>
     </rect>
    </property>

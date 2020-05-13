@@ -1,27 +1,34 @@
+# Imports
 import sys
-import ui
 from datetime import datetime
 
 from apscheduler.schedulers.background import BackgroundScheduler
+
 from PyQt5 import QtWidgets
 
+from ui import Ui
+
+# Reminder Functions
 def Rem_fin(text):
-    print("hello")
-    window.label.setText(text)
+    MyUI.label.setText(text)
 
-def Add_Rem():
-    sched.add_job(Rem_fin, trigger='date', run_date= datetime(2020,5,14,0,0,0) , args=['text'])
+def Add_Rem(date_time):
+    sched.add_job(Rem_fin, trigger='date', run_date= date_time , args=['finished'])
 
+# UI Handlers
+def ButtonPressed(self):
+    MyUI.label.setText(str(MyUI.datetime.dateTime().toString()))
+    Add_Rem(datetime(2020,5,14,0,43,0))
+
+# Main Function
 if __name__ == '__main__':
-    sched = BackgroundScheduler()
+    sched = BackgroundScheduler()                   # initialize scheduler
     
-    app = QtWidgets.QApplication(sys.argv)
-
-    window = ui.Ui()
+    app = QtWidgets.QApplication(sys.argv)          # Define QT app
     
+    MyUI = Ui()                                     # Initialize UI
+    MyUI.button.clicked.connect(ButtonPressed)      # Connect Push Button to Handler
 
     sched.start()
-
-    Add_Rem()
 
     app.exec_()
