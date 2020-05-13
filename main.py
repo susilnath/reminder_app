@@ -4,14 +4,20 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 from PyQt5 import QtWidgets, uic
 
-def fun():
-    window.debug.setText("Working")
-
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
         uic.loadUi('main.ui', self)
+
+        self.button = self.findChild(QtWidgets.QPushButton, 'Add_reminder')
+        self.label = self.findChild(QtWidgets.QLabel, 'debug')
+
+        self.button.clicked.connect(self.printButtonPressed)
+
         self.show()
+
+    def printButtonPressed(self):
+        self.label.setText("Working")
 
 if __name__ == '__main__':
     sched = BackgroundScheduler()
@@ -20,7 +26,5 @@ if __name__ == '__main__':
 
 
     window = Ui()
-    window.Add_reminder.clicked.connect(fun)
     
     app.exec_()
-    # window.Add_reminder
