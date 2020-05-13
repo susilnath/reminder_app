@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="documentMode">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="Add_reminder">
     <property name="geometry">
@@ -43,6 +46,16 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QDateTimeEdit" name="datetime">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>150</y>
+      <width>194</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -55,8 +68,9 @@
    </property>
    <widget class="QMenu" name="menuExit">
     <property name="title">
-     <string>Exit</string>
+     <string>&amp;Exit</string>
     </property>
+    <addaction name="action_Exit_now"/>
    </widget>
    <addaction name="menuExit"/>
   </widget>
@@ -65,6 +79,20 @@
     <bool>false</bool>
    </property>
   </widget>
+  <action name="action_Exit_now">
+   <property name="text">
+    <string>&amp;Now</string>
+   </property>
+   <property name="iconText">
+    <string>&amp;Now</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::QuitRole</enum>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>true</bool>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
