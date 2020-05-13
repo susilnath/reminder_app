@@ -6,7 +6,9 @@ import sys,time,traceback
 import schedule
 
 class store:
-    
+    rem=[]
+    tim=[]
+
 def job():
     print("Schedule Working")
 
@@ -14,5 +16,10 @@ def scheduler():
     schedule.every().seconds.do(job)
 
 def add_rem():
-    rem1.append(input("Enter a Reminder:"))
+    rem1.rem.append(input("Enter a Reminder:"))
+    rem1.tim.append(input("Enter "))
 
+if __name__=="__main__":
+    rem1=store
+    add_rem()
+    print(rem1.rem)
