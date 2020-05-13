@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, uic
 
+
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
@@ -7,6 +8,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.button = self.findChild(QtWidgets.QPushButton, 'Add_reminder')
         self.label = self.findChild(QtWidgets.QLabel, 'debug')
+        self.DTPick = self.findChild(QtWidgets.QDateTimeEdit, 'DateTime_Picker')
 
         self.button.clicked.connect(self.printButtonPressed)
 
@@ -14,3 +16,4 @@ class Ui(QtWidgets.QMainWindow):
 
     def printButtonPressed(self):
         self.label.setText("Working")
+        self.DTPick.
