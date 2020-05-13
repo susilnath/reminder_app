@@ -16,7 +16,11 @@ class Ui(QtWidgets.QMainWindow):
 if __name__ == '__main__':
     sched = BackgroundScheduler()
     
+    app = QtWidgets.QApplication(sys.argv)
+
+
     window = Ui()
     window.Add_reminder.clicked.connect(fun)
-
+    
+    app.exec_()
     # window.Add_reminder
