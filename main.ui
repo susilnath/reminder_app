@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>580</width>
-    <height>437</height>
+    <height>416</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,6 +27,22 @@
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QLabel" name="debug">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>60</y>
+      <width>201</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Checker</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -34,7 +50,7 @@
      <x>0</x>
      <y>0</y>
      <width>580</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuExit">
