@@ -7,7 +7,7 @@ from PyQt5 import QtWidgets, uic
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
-        uic.loadUi('basic.ui', self)
+        uic.loadUi('main.ui', self)
         self.show()
 
 if __name__ == '__main__':
