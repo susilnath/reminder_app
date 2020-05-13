@@ -4,6 +4,8 @@ from PyQt5.Qt import QApplication, QLabel, QWidget
 from PyQt5.QtCore import QRunnable,QThreadPool,pyqtSignal,QObject
 import sys,time,traceback
 
+print("Verion with schedule")
+
 font_but = QtGui.QFont()
 font_but.setFamily("Segoe UI Symbol")
 font_but.setPointSize(10)
