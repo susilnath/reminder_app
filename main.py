@@ -5,11 +5,14 @@ from PyQt5.QtCore import QRunnable,QThreadPool,pyqtSignal,QObject
 import sys,time,traceback
 import schedule
 
+class store:
+    
 def job():
     print("Schedule Working")
 
-schedule.every().seconds.do(job)
-for i in range(10):
-    print(str(i)+":",end='')
-    schedule.run_pending()
-    time.sleep(1)
+def scheduler():
+    schedule.every().seconds.do(job)
+
+def add_rem():
+    rem1.append(input("Enter a Reminder:"))
+
