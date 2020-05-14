@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QDate,QTime
-
+from PyQt5.QtCore import QDateTime
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -21,11 +21,3 @@ class Ui(QtWidgets.QMainWindow):
 
 #     def ButtonPressed(self):
 #         self.label.setText(str(self.datetime.dateTime().toString()))
-#date parser to parse from qdatetimeobject to int
-    def dateparser(self):
-        print("Reminder to set at:"+str(self.datetime.dateTime().toString('yyyy:MM:dd hh:mm:ss')))
-        rem_datetime=self.datetime.dateTime().toString('yyyy:MM:dd hh:mm:ss')
-        rem_datetimearr=rem_datetime.split(" ")
-        rem_date=rem_datetimearr[0].split(':')
-        rem_time=rem_datetimearr[1].split(':')
-        return rem_date,rem_time

@@ -17,11 +17,8 @@ def Add_Rem(date_time):
 
 # UI Handlers
 def ButtonPressed(self):
-    MyUI.label.setText(str(MyUI.datetime.dateTime().toString()))
-    rem_date,rem_time=MyUI.dateparser()             #get date and time from Ui
-    print("Date:"+str(rem_date))
-    print("Time:"+str(rem_time))
-    Add_Rem(datetime(int(rem_date[0]),int(rem_date[1]),int(rem_date[2]),int(rem_time[0]),int(rem_time[1]),int(rem_time[2])))
+    MyUI.label.setText(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))
+    Add_Rem(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))))
 
 # Main Function
 if __name__ == '__main__':
