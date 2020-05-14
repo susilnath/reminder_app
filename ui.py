@@ -1,7 +1,5 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QDate,QTime
-from PyQt5.QtCore import QDateTime
-
 
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
