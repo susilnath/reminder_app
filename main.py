@@ -1,5 +1,6 @@
 # Imports
 import sys
+import dateutil.parser
 from datetime import datetime
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -18,7 +19,8 @@ def Add_Rem(date_time):
 # UI Handlers
 def ButtonPressed(self):
     MyUI.label.setText(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))
-    Add_Rem(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))))
+    #Add_Rem(str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))))
+    Add_Rem(dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))))
 
 # Main Function
 if __name__ == '__main__':
