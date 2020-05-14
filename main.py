@@ -25,12 +25,14 @@ def ButtonPressed(self):
 # Main Function
 if __name__ == '__main__':
     sched = BackgroundScheduler()                   # initialize scheduler
-    
+    sched.add_jobstore('sqlalchemy',url= 'sqlite:///jobstore.db')
+
     app = QtWidgets.QApplication(sys.argv)          # Define QT app
     
     MyUI = Ui()                                     # Initialize UI
     MyUI.button.clicked.connect(ButtonPressed)      # Connect Push Button to Handler
 
     sched.start()
-
+    sched.print_jobs()
+    
     app.exec_()
