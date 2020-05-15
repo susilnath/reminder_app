@@ -13,7 +13,8 @@ class Ui(QtWidgets.QMainWindow):
         # self.PenJobList 
 
         self.Add = self.findChild(QtWidgets.QPushButton, 'Button_Add')
-        self.Delete = self.findChild(QtWidgets.QPushButton, 'Button_Delete')    
+        self.Delete = self.findChild(QtWidgets.QPushButton, 'Button_Delete')
+        self.clear = self.findChild(QtWidgets.QPushButton, 'clear_but') 
 
         self.datetime = self.findChild(QtWidgets.QDateTimeEdit, 'DateTime_Picker')
         

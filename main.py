@@ -1,6 +1,6 @@
 # Imports
 import sys
-# import dateutil.parser
+import dateutil.parser
 from datetime import datetime
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -14,16 +14,20 @@ import history
 
 # Reminder Functions
 
-def Rem_fin(text):
-    MyUI.label.setText(text)
+def Rem_fin(text,Title):
+    MyUI.label.setText(Title+"\n\n"+text)
     MyUI.Update_List(sched.get_jobs())
-    history.save(text)
+    history.save(Title)
 
 def call_hist():
     history.show(MyUI)
 
-def Add_Rem(Title, date_time):
-    sched.add_job(name= Title, trigger= 'date', run_date= date_time, func= Rem_fin, args= ['finished'])
+def clear_hist():
+    history.clear()
+    history.show(MyUI)
+
+def Add_Rem(Title, date_time,content):
+    sched.add_job(name= Title, trigger= 'date', run_date= date_time, func= Rem_fin, args=[content,Title])
     
     MyUI.Update_List(sched.get_jobs())
 
@@ -33,10 +37,13 @@ def Delete_Rem(Job_Id):
 # UI Handlers1
 
 def Add_button_Pressed():
-    Add_Rem(Title= MyUI.RemTitle.text(), date_time= str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))))
-    #Add_Rem(Title= MyUI.RemTitle.text(),date_time=dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))))
-    
-    MyUI.label.setText(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))   
+    try:
+        #Add_Rem(Title= MyUI.RemTitle.text(), date_time= str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))))
+        Add_Rem(Title= MyUI.RemTitle.text(),date_time=dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))),content=MyUI.RemContent.text())
+        MyUI.label.setText(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))  
+    except:
+        print("Empty String Found!!!")
+ 
 
 def Delete_Button_Clicked():
     Items = MyUI.PenJobList.selectedItems()
@@ -60,6 +67,7 @@ if __name__ == '__main__':
     MyUI = Ui()                                     # Initialize UI
     MyUI.Add.clicked.connect(Add_button_Pressed)    # Connect Push Button to Handler
     MyUI.Delete.clicked.connect(Delete_Button_Clicked)
+    MyUI.clear.clicked.connect(clear_hist)
     MyUI.tab.currentChanged.connect(call_hist)
 
     sched.start()

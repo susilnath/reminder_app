@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Tab_Pending">
      <attribute name="title">
@@ -141,8 +141,21 @@
         <x>10</x>
         <y>10</y>
         <width>601</width>
-        <height>371</height>
+        <height>321</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clear_but">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>340</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clear</string>
       </property>
      </widget>
     </widget>
@@ -154,7 +167,7 @@
      <x>0</x>
      <y>0</y>
      <width>635</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuExit">
