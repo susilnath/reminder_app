@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
-    <height>466</height>
+    <width>635</width>
+    <height>482</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,75 +17,17 @@
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="Button_Add">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>320</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="toolTipDuration">
-     <number>-1</number>
-    </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="debug">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>320</y>
-      <width>211</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Checker</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QDateTimeEdit" name="DateTime_Picker">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>390</y>
-      <width>211</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="calendarPopup">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Text_Title">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>320</y>
-      <width>251</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>Title</string>
-    </property>
-   </widget>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>6</x>
       <y>9</y>
-      <width>601</width>
-      <height>301</height>
+      <width>621</width>
+      <height>421</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Tab_Pending">
      <attribute name="title">
@@ -96,9 +38,96 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>581</width>
+        <width>601</width>
         <height>251</height>
        </rect>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::MultiSelection</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Text_Content">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>310</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Content</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Button_Add">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>270</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>-1</number>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Text_Title">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>270</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Title</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="debug">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>270</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Checker</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QDateTimeEdit" name="DateTime_Picker">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>340</y>
+        <width>201</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Button_Delete">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>326</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Delete</string>
       </property>
      </widget>
     </widget>
@@ -111,38 +140,12 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>581</width>
-        <height>251</height>
+        <width>601</width>
+        <height>371</height>
        </rect>
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="Button_Delete">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>376</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Delete</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Text_Content">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>360</y>
-      <width>251</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>Content</string>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -150,7 +153,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>623</width>
+     <width>635</width>
      <height>24</height>
     </rect>
    </property>

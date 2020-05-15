@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets, uic
+from PyQt5.Qt import Qt, QVariant
 from PyQt5.QtCore import QDate,QTime
 
 class Ui(QtWidgets.QMainWindow):
@@ -35,5 +36,7 @@ class Ui(QtWidgets.QMainWindow):
         self.PenJobList.clear()
 
         for item in Item_list:
-            self.PenJobList.addItem(item.name)
+            List_Item = QtWidgets.QListWidgetItem(item.name)
+            List_Item.setData(Qt.UserRole, QVariant(item.id))
+            self.PenJobList.addItem(List_Item)
 

@@ -1,11 +1,12 @@
 # Imports
 import sys
-import dateutil.parser
+# import dateutil.parser
 from datetime import datetime
 
 from apscheduler.schedulers.background import BackgroundScheduler
 
 from PyQt5 import QtWidgets
+from PyQt5.Qt import Qt, QVariant
 
 from ui import Ui
 
@@ -24,13 +25,28 @@ def Add_Rem(Title, date_time):
     
     MyUI.Update_List(sched.get_jobs())
 
+def Delete_Rem(Job_Id):
+    sched.remove_job()
+
 # UI Handlers1
 
-def ButtonPressed():
+def Add_button_Pressed():
     Add_Rem(Title= MyUI.RemTitle.text(), date_time= str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))))
     #Add_Rem(Title= MyUI.RemTitle.text(),date_time=dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))))
     
     MyUI.label.setText(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))   
+
+def Delete_Button_Clicked():
+    Items = MyUI.PenJobList.selectedItems()
+    
+    joblist = sched.get_jobs()
+
+    for item in Items:
+        job_id = QVariant(item.data(Qt.UserRole)).value()
+        sched.remove_job(job_id)
+
+    MyUI.Update_List(sched.get_jobs())
+
 
 # Main Function
 if __name__ == '__main__':
@@ -40,11 +56,16 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)          # Define QT app
 
     MyUI = Ui()                                     # Initialize UI
-    MyUI.Add.clicked.connect(ButtonPressed)    # Connect Push Button to Handler
-    
+    MyUI.Add.clicked.connect(Add_button_Pressed)    # Connect Push Button to Handler
+    MyUI.Delete.clicked.connect(Delete_Button_Clicked)
+
     sched.start()
-    sched.print_jobs()
 
     MyUI.Update_List(sched.get_jobs())
+
+    # MyUI.PenJobList.addItem("Item 1")
+    # MyUI.PenJobList.addItem("Item 2")
+    # MyUI.PenJobList.addItem("Item 3")
+    # MyUI.PenJobList.addItem("Item 4")
 
     app.exec_()
