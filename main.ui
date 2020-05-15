@@ -17,17 +17,20 @@
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="Add_reminder">
+   <widget class="QPushButton" name="Button_Add">
     <property name="geometry">
      <rect>
       <x>490</x>
       <y>320</y>
       <width>121</width>
-      <height>91</height>
+      <height>41</height>
      </rect>
     </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Add</string>
     </property>
    </widget>
    <widget class="QLabel" name="debug">
@@ -35,8 +38,8 @@
      <rect>
       <x>10</x>
       <y>320</y>
-      <width>191</width>
-      <height>81</height>
+      <width>211</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -49,9 +52,9 @@
    <widget class="QDateTimeEdit" name="DateTime_Picker">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>320</y>
-      <width>251</width>
+      <x>10</x>
+      <y>390</y>
+      <width>211</width>
       <height>22</height>
      </rect>
     </property>
@@ -59,24 +62,86 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QListWidget" name="Job_List">
+   <widget class="QLineEdit" name="Text_Title">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>601</width>
-      <height>281</height>
+      <x>230</x>
+      <y>320</y>
+      <width>251</width>
+      <height>31</height>
      </rect>
     </property>
+    <property name="placeholderText">
+     <string>Title</string>
+    </property>
    </widget>
-   <widget class="QLineEdit" name="Reminder_Title">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>6</x>
+      <y>9</y>
+      <width>601</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="Tab_Pending">
+     <attribute name="title">
+      <string>Pending</string>
+     </attribute>
+     <widget class="QListWidget" name="ListW_PendingJobs">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>581</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Tab_History">
+     <attribute name="title">
+      <string>History</string>
+     </attribute>
+     <widget class="QListWidget" name="ListW_HistoryJobs">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>581</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="Button_Delete">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>376</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Text_Content">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
       <y>360</y>
       <width>251</width>
-      <height>51</height>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Content</string>
     </property>
    </widget>
   </widget>

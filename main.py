@@ -36,7 +36,7 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)          # Define QT app
 
     MyUI = Ui()                                     # Initialize UI
-    MyUI.button.clicked.connect(ButtonPressed)    # Connect Push Button to Handler
+    MyUI.Add.clicked.connect(ButtonPressed)    # Connect Push Button to Handler
     
     sched.start()
     sched.print_jobs()

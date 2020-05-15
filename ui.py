@@ -9,13 +9,20 @@ class Ui(QtWidgets.QMainWindow):
         super(Ui, self).__init__()
         uic.loadUi('main.ui', self)
 
-        # self.joblist 
+        # self.PenJobList 
 
-        self.button = self.findChild(QtWidgets.QPushButton, 'Add_reminder')
-        self.label = self.findChild(QtWidgets.QLabel, 'debug')
+        self.Add = self.findChild(QtWidgets.QPushButton, 'Button_Add')
+        self.Delete = self.findChild(QtWidgets.QPushButton, 'Button_Delete')    
+
         self.datetime = self.findChild(QtWidgets.QDateTimeEdit, 'DateTime_Picker')
-        self.RemTitle = self.findChild(QtWidgets.QLineEdit, 'Reminder_Title')
-        self.joblist = self.findChild(QtWidgets.QListWidget, 'Job_List')
+        
+        self.label = self.findChild(QtWidgets.QLabel, 'debug')  
+
+        self.RemTitle = self.findChild(QtWidgets.QLineEdit, 'Text_Title')
+        self.RemContent = self.findChild(QtWidgets.QLineEdit, 'Text_Content')
+
+        self.PenJobList = self.findChild(QtWidgets.QListWidget, 'ListW_PendingJobs')
+        self.HstJobList = self.findChild(QtWidgets.QListWidget, 'ListW_HistoryJobs')
 
         self.datetime.setMinimumDate(QDate.currentDate())       #you can't bring back the dead
         self.datetime.setMinimumTime(QTime.currentTime())       #you can't bring back the dead :)
@@ -25,8 +32,8 @@ class Ui(QtWidgets.QMainWindow):
 
     def Update_List(self, Item_list):
 
-        self.joblist.clear()
+        self.PenJobList.clear()
 
         for item in Item_list:
-            self.joblist.addItem(item.name)
+            self.PenJobList.addItem(item.name)
 
