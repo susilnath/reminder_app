@@ -38,8 +38,8 @@ def Delete_Rem(Job_Id):
 
 def Add_button_Pressed():
     try:
-        #Add_Rem(Title= MyUI.RemTitle.text(), date_time= str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))))
-        Add_Rem(Title= MyUI.RemTitle.text(),date_time=dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))),content=MyUI.RemContent.text())
+        Add_Rem(Title= MyUI.RemTitle.text(), date_time= str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))),content=MyUI.RemContent.text())
+        #Add_Rem(Title= MyUI.RemTitle.text(),date_time=dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))),content=MyUI.RemContent.text())
         MyUI.label.setText(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))  
     except:
         print("Empty String Found!!!")
