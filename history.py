@@ -6,3 +6,10 @@ def save(text):
 
 def clear():
     f=open('hist.db','w').close()
+
+def show(ui):
+    f=open('hist.db','r')
+    ui.HstJobList.clear()
+    for line in f:
+        print(line)
+        ui.HstJobList.addItem(line.strip("\n"))

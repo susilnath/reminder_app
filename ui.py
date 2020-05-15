@@ -20,6 +20,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.RemTitle = self.findChild(QtWidgets.QLineEdit, 'Text_Title')
         self.RemContent = self.findChild(QtWidgets.QLineEdit, 'Text_Content')
+        self.tab = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
 
         self.PenJobList = self.findChild(QtWidgets.QListWidget, 'ListW_PendingJobs')
         self.HstJobList = self.findChild(QtWidgets.QListWidget, 'ListW_HistoryJobs')
@@ -36,4 +37,3 @@ class Ui(QtWidgets.QMainWindow):
 
         for item in Item_list:
             self.PenJobList.addItem(item.name)
-

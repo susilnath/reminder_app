@@ -18,6 +18,8 @@ def Rem_fin(text):
     MyUI.Update_List(sched.get_jobs())
     history.save(text)
 
+def call_hist():
+    history.show(MyUI)
 
 def Add_Rem(Title, date_time):
     sched.add_job(name= Title, trigger= 'date', run_date= date_time, func= Rem_fin, args= ['finished'])
@@ -27,8 +29,8 @@ def Add_Rem(Title, date_time):
 # UI Handlers1
 
 def ButtonPressed():
-    Add_Rem(Title= MyUI.RemTitle.text(), date_time= str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))))
-    #Add_Rem(Title= MyUI.RemTitle.text(),date_time=dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))))
+    #Add_Rem(Title= MyUI.RemTitle.text(), date_time= str(datetime.fromisoformat(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))))
+    Add_Rem(Title= MyUI.RemTitle.text(),date_time=dateutil.parser.isoparse(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss'))))
     
     MyUI.label.setText(str(MyUI.datetime.dateTime().toString('yyyy-MM-dd hh:mm:ss')))   
 
@@ -41,7 +43,7 @@ if __name__ == '__main__':
 
     MyUI = Ui()                                     # Initialize UI
     MyUI.Add.clicked.connect(ButtonPressed)    # Connect Push Button to Handler
-    
+    MyUI.tab.currentChanged.connect(call_hist)
     sched.start()
     sched.print_jobs()
 
