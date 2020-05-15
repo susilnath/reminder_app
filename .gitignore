@@ -2,3 +2,5 @@ env/
 .vscode/
 .pylintrc
 __pycache__/
+jobstore.db
+hist.db

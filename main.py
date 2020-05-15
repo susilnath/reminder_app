@@ -19,6 +19,8 @@ def Rem_fin(text):
     MyUI.Update_List(sched.get_jobs())
     history.save(text)
 
+def call_hist():
+    history.show(MyUI)
 
 def Add_Rem(Title, date_time):
     sched.add_job(name= Title, trigger= 'date', run_date= date_time, func= Rem_fin, args= ['finished'])
@@ -58,6 +60,7 @@ if __name__ == '__main__':
     MyUI = Ui()                                     # Initialize UI
     MyUI.Add.clicked.connect(Add_button_Pressed)    # Connect Push Button to Handler
     MyUI.Delete.clicked.connect(Delete_Button_Clicked)
+    MyUI.tab.currentChanged.connect(call_hist)
 
     sched.start()
 
