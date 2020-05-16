@@ -1,5 +1,5 @@
 def save(text):
-    f=open('hist.db','a')
+    f=open('hist.db','a+')
 
     f.writelines(text+"\n")
     f.close()
